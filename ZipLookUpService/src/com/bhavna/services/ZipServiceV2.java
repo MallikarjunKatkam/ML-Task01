@@ -30,14 +30,8 @@ public class ZipServiceV2 implements ZipServiceV1 {
 	}
 	@Override
 	public void printAllRecords() {			
-//		for(Area a:map.values()) {
-//			System.out.println(a);
-//		}
-		
-		Iterator<Map.Entry<Integer, Area>> itr=map.entrySet().iterator();
-		while(itr.hasNext()) {
-			Map.Entry<Integer, Area> entry = itr.next();
-			System.out.println(entry.getValue());
+		for(Area a:map.values()) {
+			System.out.println(a);
 		}
 	}
 
