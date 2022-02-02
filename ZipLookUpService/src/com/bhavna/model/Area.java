@@ -34,6 +34,6 @@ public class Area extends State {
 	}
 	@Override
 	public String toString() {
-		return "Country:" + getCountryName() + ", State:" + getStateName() + ", City:" + city + ", PinCode:" +pinCode+ ")";
+		return "Country:" + getCountryName() + ", State:" + getStateName() + ", City:" + city + ", PinCode:" +pinCode;
 	}
 }
