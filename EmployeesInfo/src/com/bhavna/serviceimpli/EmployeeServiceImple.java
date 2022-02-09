@@ -52,7 +52,7 @@ public class EmployeeServiceImple implements EmployeeServiceInter {
 	public void employeeCountNameStartsWithS() {
 
 		list.stream().forEach(t -> {
-			if (t.getName().startsWith("S"))
+			if (t.getName().toUpperCase().startsWith("S"))
 				count++;
 		});
 		System.out.println("There are " + count + " Employees Whose Name Starts With \"S\"");
