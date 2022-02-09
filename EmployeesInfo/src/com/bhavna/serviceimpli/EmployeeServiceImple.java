@@ -46,16 +46,16 @@ public class EmployeeServiceImple implements EmployeeServiceInter {
 		list.add(new EmployeeProps("Sridhar", 180000.00, "Delhi"));
 	}
 //====================================================================================================================		
+//	Counting the Number of Employees Starting with S
 
 	@Override
 	public void employeeCountNameStartsWithS() {
 
-//		Counting the Number of Employees Starting with S
 		list.stream().forEach(t -> {
 			if (t.getName().startsWith("S"))
 				count++;
 		});
-		System.out.println("There are " + count + " Employees Whose Name Starts With S");
+		System.out.println("There are " + count + " Employees Whose Name Starts With \"S\"");
 	}
 
 //====================================================================================================================		
@@ -69,21 +69,20 @@ public class EmployeeServiceImple implements EmployeeServiceInter {
 
 //====================================================================================================================		
 //	Get Location and employees in that location output : Map<String, List<Employees>> 
-//		ex : key : "Hyderabad" value : Employees who reside in Hyderabad
+//		ex : key : "Hyderabad" value : Employees who resides in Hyderabad
 
 	@Override
 	public void employeesResidesInLocation() {
-		
-		Map<String, List<EmployeeProps>> map = new HashMap<>();
-		map = list.stream().collect(Collectors.groupingBy(EmployeeProps :: getLocation));
-		System.out.println("Employees by Grouping By Locations: ");
-		for(Map.Entry<String,List<EmployeeProps>> entry : map.entrySet()) {
-            System.out.println("Key = " + entry.getKey() +
-                             ", Value = " + entry.getValue());
-    	}
-	}
-//====================================================================================================================		
 
+		Map<String, List<EmployeeProps>> map = new HashMap<>();
+		map = list.stream().collect(Collectors.groupingBy(EmployeeProps::getLocation));
+		System.out.println("Employees Grouping By their Locations: ");
+		for (Map.Entry<String, List<EmployeeProps>> entry : map.entrySet()) {
+			System.out.println("Key : " + entry.getKey() + ", Value : " + entry.getValue());
+		}
+	}
+
+//====================================================================================================================		
 //	Using Streams Check if any Employee's Salary is > 100000
 	@Override
 	public void employeesBasedOnSalaryRange() {
@@ -95,14 +94,14 @@ public class EmployeeServiceImple implements EmployeeServiceInter {
 
 	@Override
 	public void employeeListBasedOnName() {
-		System.out.println("Employees List Based on Names: ");
+		System.out.println("Employees List in Sorting Order Based on their Names: ");
 		list.stream().sorted((o1, o2) -> (o1.getName()).compareTo(o2.getName())).forEach(t -> System.out.println(t));
 	}
 
 //	 Using Lambds's Write a logic to sort EmployeeList based on Location
 	@Override
 	public void employeeListBasedOnLocation() {
-		System.out.println("Employees List Based on Location: ");
+		System.out.println("Employees List in Sorting Order Based on their Locations: ");
 		list.stream().sorted((o1, o2) -> (o1.getLocation()).compareTo(o2.getLocation()))
 				.forEach(t -> System.out.println(t));
 	}
@@ -110,15 +109,15 @@ public class EmployeeServiceImple implements EmployeeServiceInter {
 //====================================================================================================================		
 	@Override
 	public void optionSelection() {
-		while (true) {
-			System.out.println("Press 1 to Find the Employee Count Whose Name Starts with S: ");
-			System.out.println("Press 2 to Print all the Employees with Location Hyderabad: ");
-			System.out.println("Press 3 to Get the Location and Employees in that Corresponding Location: ");
-			System.out.println("Press 4 to Print all the Employees whose Salary is above 100000: ");
-			System.out.println("Press 5 to Print the Employees in Sorting Order Based on Names: ");
-			System.out.println("Press 6 to Print the Employees in Sorting Order Based on Location: ");
-			System.out.print("Please Enter Your Choice: ");
-			try (Scanner scn = new Scanner(System.in)) {
+		try (Scanner scn = new Scanner(System.in)) {
+			while (true) {
+				System.out.println("Press 1 to Find the Employee Count Whose Name Starts with \"S\": ");
+				System.out.println("Press 2 to Print all the Employees with Location Hyderabad: ");
+				System.out.println("Press 3 to Get the Location and Employees in that Corresponding Location: ");
+				System.out.println("Press 4 to Print all the Employees whose Salary is above 100000: ");
+				System.out.println("Press 5 to Print the Employees in Sorting Order Based on Names: ");
+				System.out.println("Press 6 to Print the Employees in Sorting Order Based on Location: ");
+				System.out.print("Please Enter Your Choice: ");
 				int option = scn.nextInt();
 				switch (option) {
 				case 1:
