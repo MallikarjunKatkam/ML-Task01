@@ -54,4 +54,12 @@ public class EmployeeProps {
 		return "EmployeeProps (" + name + ", " + salary + ", " + location + ")";
 	}
 
+	public int compareTo(EmployeeProps o2) {
+		if(this.getName()==o2.getLocation()) {
+			return this.getName().compareTo(o2.getName());
+		}
+		else {
+			return this.getLocation().compareTo(o2.getLocation());
+		}
+	}
 }
