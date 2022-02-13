@@ -22,7 +22,6 @@ import java.util.Scanner;
 import com.bhavna.empdeptinterface.EmpDeptServiceInterface;
 
 public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
-//	String conUrl="jdbc:sqlserver://localhost:1433;databaseName=Mallik;user=sa;password=Bhavna@123";
 	static String conUrl = null;
 	static Connection con = null;
 	static Statement st = null;
