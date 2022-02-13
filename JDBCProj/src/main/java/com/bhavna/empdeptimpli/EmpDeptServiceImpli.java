@@ -8,7 +8,7 @@
  * 4. write a query for find the number of employees in each department
   whose employee sal  greater than 30000.(fetch coulms dept name,count of emplyee)"
   
-  select deptName,count(*) as num from DEPT d inner join EMP e on e.DEPTID=d.DEPTID where ESAL>=3000 group by DEPTNAME 
+  //SELECT DEPTNAME,COUNT(*) AS NUM FROM DEPT D INNER JOIN EMP E ON E.DEPTID=D.DEPTID WHERE ESAL>=30000 GROUP BY DEPTNAME
  */
 package com.bhavna.empdeptimpli;
 
@@ -67,12 +67,11 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 	}
 
 //	=============================================================================================================================
-
 //	Fetching Tables Data
+	// Fetching the Emp Table Data:
 	@Override
 	public void fetchingEmpData() {
 		try {
-			// Fetching the Emp Table Data:
 			System.out.println("Fetching the Records From the Emp Table: ");
 			System.out.println("==========================================================================");
 			System.out.println("Enter the Select Query to Fetch the Employement Table Data");
@@ -93,8 +92,8 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 		System.out.println("===========================================================================");
 	}
 
+	// Fetching the Dept Table Data:
 	public void fetchingDeptData() {
-		// Fetching the Dept Table Data:
 		try {
 			System.out.println("Fetching the Records From the Dept Table: ");
 			System.out.println("===========================================================================");
@@ -252,8 +251,8 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 	public void chooseYourOption() {
 		try {
 			while (true) {
-				System.out.println("Press 1 to Create the Emp Table in the Database: ");
-				System.out.println("Press 2 to Create the Dept Table in the Database: ");
+				System.out.println("Press 1 to Create the Dept Table in the Database: ");
+				System.out.println("Press 2 to Create the Emp Table in the Database: ");
 				System.out.println("Press 3 to Fetch the Data From Emp Table: ");
 				System.out.println("Press 4 to Fetch the Data From Dept Table: ");
 				System.out.println("Press 5 to Insert the Data into Emp Table: ");
@@ -266,11 +265,11 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 				int option = scn.nextInt();
 				switch (option) {
 				case 1:
-					empTableCreation();
+					deptTableCreation();
 					System.out.println();
 					break;
 				case 2:
-					deptTableCreation();
+					empTableCreation();
 					System.out.println();
 					break;
 				case 3:
@@ -314,9 +313,7 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 					break;
 				}
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+		}finally {
 			closingJDBCObjects();
 		}
 	}
