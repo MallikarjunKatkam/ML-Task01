@@ -120,7 +120,7 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 
 //	Inserting Data into Emp Table
 	@Override
-	public void insertDataEmp() {
+	public void insertEmpData() {
 		try {
 			System.out.println("Inserting the Records into Emp Table: ");
 			System.out.println("===========================================================================");
@@ -148,7 +148,7 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 
 //	Inserting Data into Dept Table
 	@Override
-	public void insertDataDept() {
+	public void insertDeptData() {
 		try {
 			System.out.println("Inserting the Records into Dept Table: ");
 			System.out.println("===========================================================================");
@@ -283,11 +283,11 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 					System.out.println();
 					break;
 				case 5:
-					insertDataEmp();
+					insertEmpData();
 					System.out.println();
 					break;
 				case 6:
-					insertDataDept();
+					insertDeptData();
 					System.out.println();
 					break;
 				case 7:

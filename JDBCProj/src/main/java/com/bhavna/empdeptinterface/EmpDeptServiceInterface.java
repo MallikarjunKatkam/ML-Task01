@@ -15,8 +15,8 @@ public interface EmpDeptServiceInterface {
 	public void deptTableCreation();
 	public void fetchingEmpData();
 	public void fetchingDeptData();
-	public void insertDataEmp();
-	public void insertDataDept();
+	public void insertEmpData();
+	public void insertDeptData();
 	public void updateEmp();
 	public void updateDept();
 	public void employeesCount();

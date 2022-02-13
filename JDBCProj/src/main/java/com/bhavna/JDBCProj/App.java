@@ -1,4 +1,4 @@
-package bhavna.JDBCProj;
+package com.bhavna.JDBCProj;
 
 
 import com.bhavna.empdeptimpli.EmpDeptServiceImpli;
