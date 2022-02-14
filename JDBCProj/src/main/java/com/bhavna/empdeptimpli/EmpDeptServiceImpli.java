@@ -8,7 +8,7 @@
  * 4. write a query for find the number of employees in each department
   whose employee sal  greater than 30000.(fetch coulms dept name,count of emplyee)"
   
-  //SELECT DEPTNAME,COUNT(*) AS NUM FROM DEPT D INNER JOIN EMP E ON E.DEPTID=D.DEPTID WHERE ESAL>=30000 GROUP BY DEPTNAME
+  //SELECT DEPTNAME,COUNT(*) NUM FROM DEPT D INNER JOIN EMP E ON E.DEPTID=D.DEPTID WHERE ESAL>=30000 GROUP BY DEPTNAME
  */
 package com.bhavna.empdeptimpli;
 
@@ -23,11 +23,11 @@ import com.bhavna.empdeptinterface.EmpDeptServiceInterface;
 import com.bhavna.model.EmpDeptData;
 
 public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
-	static String conUrl = null;
-	static Connection con = null;
-	static Statement st = null;
-	static ResultSet rs = null;
-	static Scanner scn = null;
+	static String conUrl;
+	static Connection con;
+	static Statement st;
+	static ResultSet rs;
+	static Scanner scn;
 //	=============================================================================================================================
 //	Connection Establishing
 	static {
@@ -209,7 +209,7 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 		try {
 			System.out.println("Counting Number of Employees Group by Department Name and Greater Than 30000 Salary: ");
 			System.out.println("===========================================================================");
-			String query = "SELECT DEPTNAME,COUNT(*) AS NUM FROM DEPT D INNER JOIN EMP E ON E.DEPTID=D.DEPTID WHERE ESAL>=30000 GROUP BY DEPTNAME";
+			String query = "SELECT DEPTNAME,COUNT(*) NUM FROM DEPT D INNER JOIN EMP E ON E.DEPTID=D.DEPTID WHERE ESAL>=30000 GROUP BY DEPTNAME";
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
 				System.out.println(rs.getString(1) + " Department Have " + rs.getString(2) + " Employees: ");
@@ -309,10 +309,10 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 				}
 
 				System.out.println();
-				System.out.println("Do you want to continue enter Y");
+				System.out.println("Press Y to Continue or Press N to Exit");
 				String str = scn.next();
 				if (!str.equalsIgnoreCase("y")) {
-					System.out.println("You Can Exit Now! ");
+					System.out.println("You Can Exit Now! Thank You!");
 					break;
 				}
 			}
