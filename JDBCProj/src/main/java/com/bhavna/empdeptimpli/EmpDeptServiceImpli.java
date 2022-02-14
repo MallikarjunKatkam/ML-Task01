@@ -20,6 +20,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import com.bhavna.empdeptinterface.EmpDeptServiceInterface;
+import com.bhavna.model.EmpDeptData;
 
 public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 	static String conUrl = null;
@@ -122,20 +123,21 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 		try {
 			System.out.println("Inserting the Records into Emp Table: ");
 			System.out.println("===========================================================================");
+			EmpDeptData ed=new EmpDeptData();
 			System.out.print("Enter empId: ");
-			int empId = scn.nextInt();
+			ed.setEmpId(scn.nextInt());
 			scn.nextLine();
 			System.out.print("Enter empName: ");
-			String empName = scn.nextLine();
+			ed.setEmpName(scn.nextLine());
 			System.out.print("Enter empSalary: ");
-			double sal = scn.nextDouble();
+			ed.setEmpSal(scn.nextDouble());
 			scn.nextLine();
 			System.out.print("Enter empDateOfJoining: ");
-			String date = scn.nextLine();
+			ed.setDoj(scn.nextLine());
 			System.out.print("Enter deptId: ");
-			int deptId = scn.nextInt();
-			String insertQuery = "INSERT INTO EMP VALUES(" + empId + ",\'" + empName + "\'," + sal + ",\'" + date
-					+ "\'," + deptId + ")";
+			ed.setDeptId(scn.nextInt());
+			String insertQuery = "INSERT INTO EMP VALUES(" + ed.getEmpId() + ",\'" + ed.getEmpName() + "\'," + ed.getEmpSal() + ",\'" + ed.getDoj()
+					+ "\'," + ed.getDeptId() + ")";
 			st.executeUpdate(insertQuery);
 			System.out.println("Record was inserted successfully! ");
 		} catch (SQLException e) {
@@ -150,13 +152,14 @@ public class EmpDeptServiceImpli implements EmpDeptServiceInterface {
 		try {
 			System.out.println("Inserting the Records into Dept Table: ");
 			System.out.println("===========================================================================");
+			EmpDeptData ed=new EmpDeptData();
 			System.out.print("Enter deptId: ");
-			int deptId = scn.nextInt();
+			ed.setDeptId(scn.nextInt());
 			scn.nextLine();
 			System.out.print("Enter deptName: ");
-			String deptName = scn.nextLine();
+			ed.setDeptName(scn.nextLine());
 
-			String insertQuery = "INSERT INTO DEPT VALUES(" + deptId + ",\'" + deptName + "\')";
+			String insertQuery = "INSERT INTO DEPT VALUES(" + ed.getDeptId() + ",\'" + ed.getDeptName() + "\')";
 			st.executeUpdate(insertQuery);
 			System.out.println("Record was inserted successfully! ");
 		} catch (SQLException e) {
