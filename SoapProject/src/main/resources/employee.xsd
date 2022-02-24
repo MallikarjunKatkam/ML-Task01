@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.bhavna.com/employee"
+	xmlns:tns="http://www.bhavna.com/employee"
+	elementFormDefault="qualified">
+	
+
+	<xsd:element name="EmployeeRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="empId" type="xsd:int" />
+				<xsd:element name="empName" type="xsd:string" />
+				<xsd:element name="desg" type="xsd:string" />
+				<xsd:element name="empSal" type="xsd:double" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+			
+	<xsd:element name="EmployeeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="isIncreased" type="xsd:boolean" />
+				<xsd:element name="hikePerc" type="xsd:double" />
+				<xsd:element name="message" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
+
