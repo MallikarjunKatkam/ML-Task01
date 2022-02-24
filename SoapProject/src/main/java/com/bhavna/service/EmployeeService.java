@@ -36,7 +36,7 @@ public class EmployeeService {
 		if(req.getDesg().equalsIgnoreCase("trainee")) {
 			er.setHikePerc(0);
 			er.setIsIncreased(false);
-			er.setMessage("Your Salary increments will be starts from next year!");
+			er.setMessage("Your Salary was not Increased!");
 		}
 		return er;		
 	}
