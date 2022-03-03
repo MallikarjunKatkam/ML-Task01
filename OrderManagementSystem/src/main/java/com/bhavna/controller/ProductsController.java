@@ -17,8 +17,8 @@ public class ProductsController {
 	@Autowired
 	ProductServiceI serv;
 	
-	@GetMapping("/list")
-	public List<Product> getAllItems(){
+	@GetMapping("/getProducts")
+	public List<Product> getAllProducts(){
 		return serv.getAll();
 	}
 }

@@ -16,19 +16,19 @@ import com.bhavna.repository.ProductsRepo;
 @Service
 public class OrderServiceImpl implements OrderServiceI {
 	@Autowired
-	OrdersRepo repo;
+	OrdersRepo ordersRepo;
 
 	@Autowired
-	ProductsRepo itemRepo;
+	ProductsRepo productsRepo;
 
 	Category category = new Category();
 
 	public List<Orders> geAllOrders() {
-		return repo.findAll();
+		return ordersRepo.findAll();
 	}
 
 	public String addOrder(Orders order) {
-		Integer price = itemRepo.getById(order.getProduct().getProductId()).getPrice();
+		Integer price = productsRepo.getById(order.getProduct().getProductId()).getPrice();
 //		if(itemRepo.existsById(order.getOrderId())) {
 //			throw new NoSuchElementException();
 //		}
@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderServiceI {
 				throw new MyException();
 			} else {
 				order.setPrice(order.getQuantity() * price);
-				repo.save(order);
+				ordersRepo.save(order);
 				return "added successfully";
 			}
 //		}
@@ -45,25 +45,25 @@ public class OrderServiceImpl implements OrderServiceI {
 
 	public Optional<Orders> getOrderById(Integer id) {
 //		return repo.findById(id).get();
-		return repo.findById(id);
+		return ordersRepo.findById(id);
 	}
 
 	public void deleteOrder(Integer id) {
-		if (repo.existsById(id)) {
-			repo.deleteById(id);
+		if (ordersRepo.existsById(id)) {
+			ordersRepo.deleteById(id);
 		} else {
 			throw new NoSuchElementException();
 		}
 	}
 
 	public Orders updateOrder(Integer order_id, Orders orders) {
-		if (repo.existsById(order_id)) {
-			Integer price = itemRepo.getById(orders.getProduct().getProductId()).getPrice();
+		if (ordersRepo.existsById(order_id)) {
+			Integer price = productsRepo.getById(orders.getProduct().getProductId()).getPrice();
 			if ((orders.getQuantity() <= 0)) {
 				throw new MyException();
 			} else {
 				orders.setPrice(orders.getQuantity() * price);
-				return repo.save(orders);
+				return ordersRepo.save(orders);
 			}
 
 		} else {
@@ -72,15 +72,15 @@ public class OrderServiceImpl implements OrderServiceI {
 	}
 
 	public Orders patchOrder(Integer id, Integer item_id, Integer quantity) {
-		Orders order = repo.findById(id).get();
+		Orders order = ordersRepo.findById(id).get();
 		if (quantity != null)
 			order.setQuantity(quantity);
 		if (item_id != null)
-			order.setProduct(itemRepo.findById(item_id).get());
-		Integer price = itemRepo.getById(order.getProduct().getProductId()).getPrice();
+			order.setProduct(productsRepo.findById(item_id).get());
+		Integer price = productsRepo.getById(order.getProduct().getProductId()).getPrice();
 		order.setPrice(order.getQuantity() * price);
 		System.out.println(order);
-		return repo.save(order);
+		return ordersRepo.save(order);
 	}
 
 }

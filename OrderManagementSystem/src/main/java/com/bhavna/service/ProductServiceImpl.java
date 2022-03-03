@@ -11,9 +11,9 @@ import com.bhavna.repository.ProductsRepo;
 @Service
 public class ProductServiceImpl implements ProductServiceI {
 	@Autowired
-	ProductsRepo repo;
+	ProductsRepo productsRepo;
 	
 	public List<Product> getAll(){
-		return repo.findAll();
+		return productsRepo.findAll();
 	}
 }

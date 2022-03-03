@@ -24,36 +24,36 @@ public class OrdersController {
 	@Autowired
 	OrderServiceI serv;
 	
-	@GetMapping("/list")
+	@GetMapping("/getOrders")
 	public List<Orders> getAllOrders(){
 		return serv.geAllOrders();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("/addOrder")
 	public String addOrder(@RequestBody Orders order) {
 		 serv.addOrder(order);
-		return "added successfully";
+		return "Your Order was Added Successfully";
 	}
 	
 	
-	@GetMapping("/get/{id}")
+	@GetMapping("/getOrder/{id}")
 	public Optional<Orders> getOrderById(@PathVariable("id") Integer id) {
 		return serv.getOrderById(id);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/deleteOrder/{id}")
 	public String deleteOrderById(@PathVariable("id") Integer id) {
 		serv.deleteOrder(id);
-		return "deleted successfully";
+		return "Your Order was Deleted Successfully";
 	}
 	
-	@PutMapping("/update/{order_id}")
+	@PutMapping("/updateOrder/{order_id}")
 	public Orders updateByCategory(@PathVariable("order_id") Integer order_id,@RequestBody Orders order) {
 		return	serv.updateOrder(order_id, order);
 
 	}
 	
-	@PatchMapping("/patch/{id}")
+	@PatchMapping("/patchOrder/{id}")
 	public Orders patchOrder(@PathVariable("id") Integer id, @RequestParam(name = "item", required=false) Integer item_id,  @RequestParam(name = "quantity", required=false) Integer quantity) {
 		return serv.patchOrder(id, item_id, quantity);
 	}
