@@ -29,10 +29,6 @@ public class OrderServiceImpl implements OrderServiceI {
 
 	public String addOrder(Orders order) {
 		Integer price = productsRepo.getById(order.getProduct().getProductId()).getPrice();
-//		if(itemRepo.existsById(order.getOrderId())) {
-//			throw new NoSuchElementException();
-//		}
-//		else {			
 			if ((order.getQuantity() <= 0)) {
 				throw new MyException();
 			} else {
@@ -40,11 +36,9 @@ public class OrderServiceImpl implements OrderServiceI {
 				ordersRepo.save(order);
 				return "added successfully";
 			}
-//		}
 	}
 
 	public Optional<Orders> getOrderById(Integer id) {
-//		return repo.findById(id).get();
 		return ordersRepo.findById(id);
 	}
 
