@@ -44,9 +44,9 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	public StudentEntity getStudentById(Integer id) {
 		Session currentSession = sessionFactory.openSession();
-        StudentEntity theCustomer = currentSession.get(StudentEntity.class, id);
+        StudentEntity student = currentSession.get(StudentEntity.class, id);
         currentSession.close();
-        return theCustomer;
+        return student;
 	}
 
 	@Override
