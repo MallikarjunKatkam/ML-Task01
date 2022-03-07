@@ -37,5 +37,4 @@ public class SoapWebServiceConfig {
 	public XsdSchema schema() {
 		return new SimpleXsdSchema(new ClassPathResource("employee.xsd"));
 	}
-
 }

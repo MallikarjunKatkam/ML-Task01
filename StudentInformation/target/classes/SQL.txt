@@ -1,0 +1,11 @@
+CREATE TABLE Courses (course_id INT PRIMARY KEY,
+course VARCHAR(50),
+institute VARCHAR(50),
+institute_address VARCHAR(50));
+
+
+CREATE TABLE Students (id INT PRIMARY KEY,
+name VARCHAR(50),
+contact BIGINT,
+student_address VARCHAR(50),
+course_id INT FOREIGN KEY REFERENCES Courses(course_id));
