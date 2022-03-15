@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,4 +55,12 @@ public class EmployeeController {
 			@RequestParam(name = "size", required = false, defaultValue = "10") Integer size) {
 		return empService.getAllEmployeesByPage(page, size);
 	}
+	
+//	@Value("${domain}")
+//	private String message;
+//	
+//	@GetMapping("/message")
+//	public String getMessage() {
+//		return message;
+//	}
 }
